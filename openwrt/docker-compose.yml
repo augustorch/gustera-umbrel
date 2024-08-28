@@ -1,0 +1,7 @@
+
+FROM openwrtorg/rootfs
+
+# Configurações adicionais do OpenWRT
+
+EXPOSE 80
+CMD ["/bin/sh"]
