@@ -1,0 +1,11 @@
+id: openwrt
+name: gusterastore-openwrt
+version: 1.0.0
+description: OpenWRT running on Umbrel
+repository: https://github.com/sua-repo/openwrt-umbrel
+icon: https://openwrt.org/favicon.ico
+author: Seu Nome
+dockerfile: Dockerfile
+ports:
+  - "8080:80"
+  network: openwrt
