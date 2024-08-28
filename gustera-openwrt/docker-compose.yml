@@ -5,10 +5,17 @@ services:
   app_proxy:
     environment:
       # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: gustera-openwrt_1
+      APP_HOST: gustera-openwrt_server_1
       APP_PORT: 3000
+    networks:
+      - openwrt_network
     
   server:
-    image: openwrt/imagebuilder:latest
+    image: openwrt/imagebuilder
     user: "1000:1000"
     init: true
+    ports:
+      - "8080:80" 
+networks:
+  openwrt_network:
+    driver: bridge
