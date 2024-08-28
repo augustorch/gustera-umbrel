@@ -1,11 +1,14 @@
-# Use a imagem base do OpenWRT, específica para Docker
-FROM openwrtorg/rootfs
+version: "3.7"
 
-# Instala os pacotes necessários do OpenWRT
-RUN opkg update && opkg install luci
+services:
 
-# Expõe as portas necessárias
-EXPOSE 80 443
-
-# Define o comando de inicialização para o OpenWRT, geralmente iniciando os serviços padrão
-CMD ["/sbin/init"]
+  app_proxy:
+    environment:
+      # The format here is: <app-id>_<docker-service-name>_1
+      APP_HOST: gustera-openwrt_1
+      APP_PORT: 3000
+    
+  server:
+    image: openwrt/imagebuilder:latest
+    user: "1000:1000"
+    init: true
