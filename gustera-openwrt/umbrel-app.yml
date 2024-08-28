@@ -1,5 +1,5 @@
-id: openwrt
-name: gusterastore-opemwrt
+id: gustera-openwrt
+name: OpenWRT
 version: 1.0.0
 description: OpenWRT running on Umbrel
 repository: https://github.com/sua-repo/openwrt-umbrel
