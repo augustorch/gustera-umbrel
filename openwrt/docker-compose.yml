@@ -1,7 +1,11 @@
-
+# Use a imagem base do OpenWRT, específica para Docker
 FROM openwrtorg/rootfs
 
-# Configurações adicionais do OpenWRT
+# Instala os pacotes necessários do OpenWRT
+RUN opkg update && opkg install luci
 
-EXPOSE 80
-CMD ["/bin/sh"]
+# Expõe as portas necessárias
+EXPOSE 80 443
+
+# Define o comando de inicialização para o OpenWRT, geralmente iniciando os serviços padrão
+CMD ["/sbin/init"]
